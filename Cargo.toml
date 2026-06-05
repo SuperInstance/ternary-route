@@ -1,0 +1,6 @@
+[package]
+name = "ternary-route"
+version = "0.1.0"
+edition = "2021"
+description = "Ternary routing with load balancing and failover"
+license = "MIT"
