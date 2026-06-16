@@ -1,6 +1,6 @@
 //! Ternary routing: route requests with {-1=reject, 0=queue, +1=accept} decisions.
 
-use std::collections::{HashMap, VecDeque};
+use std::collections::VecDeque;
 
 /// Route destination
 #[derive(Clone, Debug)]
@@ -65,7 +65,7 @@ impl TernaryRouter {
         let healthy: Vec<&Destination> = self.destinations.iter().filter(|d| d.health > 0).collect();
         if healthy.is_empty() { return None; }
         let total_weight: f64 = healthy.iter().map(|d| d.weight).sum();
-        let mut target = (self.queue.len() as f64 % total_weight);
+        let mut target = self.queue.len() as f64 % total_weight;
         for dest in &healthy {
             target -= dest.weight;
             if target <= 0.0 { return Some(dest.id); }

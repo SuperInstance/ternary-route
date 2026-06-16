@@ -4,3 +4,7 @@ version = "0.1.0"
 edition = "2021"
 description = "Ternary routing with load balancing and failover"
 license = "MIT"
+repository = "https://github.com/SuperInstance/ternary-route"
+homepage = "https://superinstance.ai"
+categories = ["algorithms", "network-programming"]
+keywords = ["ternary", "routing", "load-balancing", "failover", "health-check"]
